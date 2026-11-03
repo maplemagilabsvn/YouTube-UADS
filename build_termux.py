@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-YouTube NADS Pro - Quick Build Script for Termux & CLI Android Environment
-Builds and packages YouTube_NADS_Pro.apk without requiring full Gradle.
+YouTube UADS (Unadsen) v2.0 - Quick Build Script for Termux & CLI Android Environment
+Builds and packages YouTube_UADS_v2.0.apk without requiring full Gradle.
 Prerequisites in Termux: pkg install openjdk-17 aapt2 android-tools
 """
 
@@ -49,8 +49,8 @@ def main():
         
         # Ký APK bằng khóa trong mykey
         if os.path.exists("mykey/key.pk8") and os.path.exists("mykey/cert.pem"):
-            run_cmd("apksigner sign --key mykey/key.pk8 --cert mykey/cert.pem --out YouTube_NADS_Pro.apk build/unsigned.apk")
-            print("[✓] ĐÃ TẠO VÀ KÝ THÀNH CÔNG: YouTube_NADS_Pro.apk")
+            run_cmd("apksigner sign --key mykey/key.pk8 --cert mykey/cert.pem --out YouTube_UADS_v2.0.apk build/unsigned.apk")
+            print("[✓] ĐÃ TẠO VÀ KÝ THÀNH CÔNG: YouTube_UADS_v2.0.apk")
     else:
         print("[!] Không tìm thấy android.jar. Vui lòng build bằng Android Studio thông qua file build.gradle hoặc tải android-sdk trong Termux.")
 

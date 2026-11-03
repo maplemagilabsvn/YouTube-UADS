@@ -15,7 +15,7 @@
         android:hasCode="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/ic_youtube"
-        android:label="YouTube NADS Pro"
+        android:label="YouTube UADS (Unadsen)"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar">

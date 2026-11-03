@@ -117,7 +117,7 @@ public class LoginActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (url.contains("youtube.com") && !url.contains("accounts.google.com")) {
-                    SharedPreferences prefs = getSharedPreferences("YouTubeNADS_Prefs", Context.MODE_PRIVATE);
+                    SharedPreferences prefs = getSharedPreferences("YouTubeUADS_Prefs", Context.MODE_PRIVATE);
                     prefs.edit()
                             .putBoolean("is_logged_in", true)
                             .putBoolean("just_logged_in", true)

@@ -45,7 +45,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * YouTube NADS Pro (v2.0)
+ * YouTube UADS (Unadsen) - v2.0 (Bản phối lại / Remix Edition)
+ * Phối lại từ dự án YouTube-NADS do tác giả Letamphong628 thực hiện.
  * Enhanced Fork featuring:
  * - HTML5 Fullscreen with WebChromeClient CustomView & Sensor Landscape
  * - Anti-Pause Background Audio Playback via Visibility API Hook
@@ -75,7 +76,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private ImageView imgHome, imgShorts, imgSub, imgYou;
     private TextView txtHome, txtShorts, txtSub, txtYou;
 
-    private static final String PREF_NAME = "YouTubeNADS_Prefs";
+    private static final String PREF_NAME = "YouTubeUADS_Prefs";
     private static final String KEY_SETUP_DONE = "is_setup_done";
     private static final String KEY_SPONSOR_BLOCK = "sponsor_block_enabled";
     private static final String KEY_DESKTOP_MODE = "desktop_mode_enabled";
@@ -248,13 +249,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         logoBox.setGravity(Gravity.CENTER_VERTICAL);
 
         TextView logo = new TextView(this);
-        logo.setText("▶ NADS");
+        logo.setText("▶ UADS");
         logo.setTextColor(Color.WHITE);
         logo.setTextSize(17);
         logo.setTypeface(Typeface.DEFAULT_BOLD);
 
         TextView badge = new TextView(this);
-        badge.setText("PRO");
+        badge.setText("Unadsen v2.0");
         badge.setTextColor(COLOR_ACTIVE);
         badge.setTextSize(10);
         badge.setTypeface(Typeface.DEFAULT_BOLD);
@@ -660,7 +661,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void showSettingsDialog() {
         AlertDialog.Builder b = new AlertDialog.Builder(this);
-        b.setTitle("⚙️ Cài đặt YouTube NADS Pro");
+        b.setTitle("⚙️ Cài đặt YouTube UADS (Unadsen)");
 
         final SharedPreferences prefs = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         final boolean currentSponsor = prefs.getBoolean(KEY_SPONSOR_BLOCK, true);
@@ -779,14 +780,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         tvIcon.setPadding(0, dp(16), 0, dp(8));
 
         TextView tvWelcome = new TextView(this);
-        tvWelcome.setText("YouTube NADS Pro");
+        tvWelcome.setText("YouTube UADS (Unadsen) v2.0");
         tvWelcome.setTextColor(Color.WHITE);
         tvWelcome.setTextSize(24);
         tvWelcome.setTypeface(Typeface.DEFAULT_BOLD);
         tvWelcome.setGravity(Gravity.CENTER);
 
         TextView tvSubWelcome = new TextView(this);
-        tvSubWelcome.setText("Trải nghiệm xem video không quảng cáo, PiP, chạy nền và tự động bỏ qua tài trợ (SponsorBlock).");
+        tvSubWelcome.setText("Bản phối lại từ dự án YouTube-NADS của tác giả Letamphong628.\nTrải nghiệm xem video không quảng cáo, PiP, chạy nền và tự động bỏ qua tài trợ (SponsorBlock).");
         tvSubWelcome.setTextColor(Color.GRAY);
         tvSubWelcome.setTextSize(14);
         tvSubWelcome.setGravity(Gravity.CENTER);
@@ -838,10 +839,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         svText.setBackgroundColor(Color.parseColor("#12141A"));
 
         TextView tvTermsBody = new TextView(this);
-        tvTermsBody.setText("ĐIỀU KHOẢN DỊCH VỤ YOUTUBE NADS PRO\n\n" +
-                "1. Ứng dụng hoạt động như một trình duyệt chuyên dụng tối ưu cho YouTube di động.\n\n" +
-                "2. Quyền riêng tư: Ứng dụng không thu thập, không lưu trữ thông tin đăng nhập hay theo dõi người dùng.\n\n" +
-                "3. Các tính năng tích hợp: Tự động chặn quảng cáo, bảo vệ phát nền không tạm dừng, SponsorBlock và PiP.");
+        tvTermsBody.setText("ĐIỀU KHOẢN DỊCH VỤ YOUTUBE UADS (UNADSEN) V2.0\n\n" +
+                "1. Bản phối lại (Remix) phát triển dựa trên nền tảng dự án YouTube-NADS do tác giả Letamphong628 thực hiện.\n\n" +
+                "2. Ứng dụng hoạt động như một trình duyệt chuyên dụng tối ưu cho YouTube di động.\n\n" +
+                "3. Quyền riêng tư: Ứng dụng không thu thập, không lưu trữ thông tin đăng nhập hay theo dõi người dùng.\n\n" +
+                "4. Các tính năng tích hợp: Tự động chặn quảng cáo, bảo vệ phát nền không tạm dừng, SponsorBlock và PiP.");
         tvTermsBody.setTextColor(Color.LTGRAY);
         tvTermsBody.setTextSize(13);
         svText.addView(tvTermsBody);
