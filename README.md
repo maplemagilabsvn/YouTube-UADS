@@ -1,51 +1,89 @@
-# 📺 YouTube NADS (v1.1)
+# 📺 YouTube NADS Pro (v2.0) - Enhanced Fork
 
-[<img src="https://img.shields.io/badge/Version-1.1-blue.svg">](https://github.com/letamphong628/Youtube-NADS)
-[<img src="https://img.shields.io/badge/Platform-Android-green.svg">](https://github.com/letamphong628/Youtube-NADS)
+[<img src="https://img.shields.io/badge/Version-2.0--PRO-blue.svg">](https://github.com/letamphong628/Youtube-NADS)
+[<img src="https://img.shields.io/badge/Platform-Android%208.0%2B-green.svg">](https://github.com/letamphong628/Youtube-NADS)
+[<img src="https://img.shields.io/badge/Build-Android%20Studio%20%7C%20Termux-purple.svg">](https://github.com/letamphong628/Youtube-NADS)
 [<img src="https://img.shields.io/badge/License-Open%20Source-orange.svg">](https://github.com/letamphong628/Youtube-NADS)
 
 ---
 
 ## 🇻🇳 Tiếng Việt
 
-### 📖 Giới thiệu
-**YouTube NADS** là một ứng dụng khách (client) YouTube chạy trên nền tảng Android Native, được thiết kế tối ưu hóa theo mô hình hiện đại (chuẩn Pure Tuber / NewPipe). Ứng dụng mang lại trải nghiệm xem video mượt mà, loại bỏ hoàn toàn quảng cáo phiền toái, hỗ trợ tính năng xem nổi (PiP) và phát âm thanh trong nền.
+### 🚀 Giới thiệu phiên bản Pro (v2.0)
+**YouTube NADS Pro** là phiên bản nâng cấp toàn diện (Enhanced Fork) từ dự án gốc YouTube NADS. Ứng dụng khắc phục triệt để các hạn chế của phiên bản cũ, bổ sung cơ chế chặn quảng cáo 2 tầng (Two-Tier Adblock), tích hợp **SponsorBlock**, sửa lỗi toàn màn hình (Fullscreen), chống dừng phát khi tắt màn hình (Anti-Pause Background Audio) và hỗ trợ mở link YouTube trực tiếp từ các ứng dụng khác.
 
-### ✨ Các tính năng chính (Features)
-* **🚫 Chặn quảng cáo toàn diện (Ad Blocker):** Tự động bỏ qua quảng cáo trong video (Auto-skip ads) và ẩn các banner quảng cáo rác trên giao diện.
-* **🖼️ Chế độ PiP (Picture-in-Picture):** Hỗ trợ thu nhỏ video thành cửa sổ nổi trên màn hình khi bạn thoát ra ngoài hoặc mở ứng dụng khác (Android 8.0+).
-* **🎵 Phát âm thanh trong nền (Background Playback):** Tiếp tục nghe nhạc, podcast hoặc video ngay cả khi tắt màn hình hoặc chuyển sang ứng dụng khác.
-* **🎨 Giao diện Dark Mode chuyên nghiệp:** Sử dụng hệ thống Vector Drawable Icons đồng bộ, hiện đại, tối ưu cho chế độ tối (Dark Theme).
-* **📱 Tối ưu hóa UI/UX:** 
-  * Thanh phân loại danh mục (Tất cả, Âm nhạc, Trò chơi...) được kéo lên sát thanh Header.
-  * Thanh điều hướng (BottomBar) gọn gàng với 4 tab chính: Trang chủ, Shorts, Đăng ký, Bạn.
-  * Hỗ trợ nút Cast màn hình kết nối thiết bị ngoại vi thông minh.
-* **🔑 Đăng nhập tài khoản Google:** Quá trình Setup Wizard thông minh, hỗ trợ đăng nhập tài khoản Google chính chủ để đồng bộ lịch sử và kênh đã đăng ký.
+---
+
+### ✨ Những nâng cấp đột phá so với bản v1.1
+
+1. **🛡️ Chặn quảng cáo 2 tầng (Two-Tier Ultra AdBlock):**
+   * **Tầng mạng (Network Interception):** Tự động chặn các yêu cầu gửi đến server quảng cáo (`googleads`, `doubleclick`, `pagead`, `log_event`...) ngay trước khi dữ liệu được tải về, giúp tiết kiệm dung lượng mạng di động (4G/5G).
+   * **Tầng giao diện (DOM Fast-Forward):** Nếu quảng cáo video lọt qua, hệ thống lập tức tắt tiếng (Mute), tăng tốc độ phát lên 16x và tua thẳng đến cuối để tự động bấm nút *Bỏ qua quảng cáo* (Skip Ad) trong tích tắc.
+   * Tự động ẩn sạch banner rác, popup cài ứng dụng và thông báo mời mua YouTube Premium.
+
+2. **⚡ Tích hợp SponsorBlock (Tự động bỏ qua đoạn tài trợ):**
+   * Kết nối trực tiếp với API cộng đồng SponsorBlock.
+   * Tự động nhận diện và nhảy qua các đoạn quảng cáo tài trợ (sponsor), lời kêu gọi đăng ký (selfpromo), intro và outro dài dòng trong video.
+
+3. **🖥️ Sửa lỗi Toàn màn hình (HTML5 Fullscreen CustomView):**
+   * Tích hợp xử lý `onShowCustomView` và `onHideCustomView` trong WebChromeClient.
+   * Tự động ẩn thanh Header và Navigation Bar, khóa xoay ngang cảm ứng (Sensor Landscape) và kích hoạt chế độ Immersive Fullscreen mượt mà.
+
+4. **🎵 Công nghệ chống dừng phát ngầm (Anti-Pause Background Engine):**
+   * Hook đè lên `document.visibilityState` và `visibilitychange` của trình duyệt.
+   * Ngăn YouTube phát hiện người dùng chuyển ứng dụng hoặc tắt màn hình, đảm bảo âm thanh/nhạc/podcast tiếp tục phát liên tục mà không bao giờ bị dừng giữa chừng.
+
+5. **⚡ Điều chỉnh tốc độ phát nhanh (Speed Selector):**
+   * Nút bấm tốc độ trực tiếp trên thanh công cụ Header với 9 mức: `0.5x`, `0.75x`, `1.0x`, `1.25x`, `1.5x`, `1.75x`, `2.0x`, `2.5x`, `3.0x`.
+
+6. **📥 Trung tâm Tải xuống & Chia sẻ link sạch (Clean URL & Downloader):**
+   * Sao chép liên kết sạch: Tự động loại bỏ các mã theo dõi rác (`si=`, `feature=...`), tạo link rút gọn `https://youtu.be/...`.
+   * Hỗ trợ bắn link sang các ứng dụng tải video chuyên dụng (Seal, NewPipe, YTDLnis, 1DM) hoặc mở nhanh qua Cobalt web downloader.
+
+7. **🔗 Hỗ trợ Deep-Link Intent:**
+   * Tự động bắt link YouTube (`m.youtube.com`, `youtube.com`, `youtu.be`) khi bấm vào liên kết từ Messenger, Zalo, Chrome, Telegram...
+
+8. **🎨 Giao diện AMOLED Pitch Black & Liquid Glass:**
+   * Nền đen sâu `#000000` tiết kiệm pin màn hình OLED/AMOLED.
+   * Thanh điều hướng nổi bo tròn phong cách kính mờ (Liquid Glass).
+   * Cơ chế chống thoát nhầm: Nhấn nút Back 2 lần trong 2 giây để thoát app.
+
+9. **🛠️ Cấu trúc chuẩn hóa Android Studio & Termux:**
+   * Bổ sung đầy đủ `settings.gradle`, `build.gradle`, `app/build.gradle` (SDK 34).
+   * Kèm script `build_termux.py` cho người dùng muốn biên dịch trên môi trường dòng lệnh Termux.
+
+---
+
+### 🛠️ Hướng dẫn Biên dịch & Cài đặt
+
+#### Cách 1: Sử dụng Android Studio (Khuyên dùng)
+1. Mở Android Studio -> Chọn **Open Project** -> Trỏ tới thư mục dự án.
+2. Đợi Gradle đồng bộ và bấm **Run** hoặc **Build APK** (`Build > Build Bundle(s) / APK(s) > Build APK(s)`).
+
+#### Cách 2: Biên dịch qua Termux trên điện thoại
+```bash
+pkg update && pkg install openjdk-17 aapt2 android-tools python
+python build_termux.py
+```
 
 ---
 
 ## 🇬🇧 English
 
-### 📖 Introduction
-**YouTube NADS** is a native Android YouTube client designed with a modern architecture (Pure Tuber / NewPipe style). It delivers a smooth video-watching experience with built-in ad blocking, Picture-in-Picture (PiP) mode, and background audio playback.
+### 🚀 About YouTube NADS Pro (v2.0)
+**YouTube NADS Pro** is an advanced fork of YouTube NADS. It features Two-Tier Ad-blocking, SponsorBlock integration, fixed HTML5 video fullscreen, Anti-Pause background audio, deep-linking, quick speed controls, and a sleek AMOLED Liquid Glass UI.
 
 ### ✨ Key Features
-* **🚫 Comprehensive Ad Blocker:** Automatically skips video advertisements (Auto-skip ads) and hides annoying interface banner ads.
-* **🖼️ Picture-in-Picture (PiP) Mode:** Allows you to watch videos in a floating window while using other apps or going to the home screen (Android 8.0+).
-* **🎵 Background Playback:** Continue listening to music, podcasts, or videos even when the screen is turned off or when switching to another app.
-* **🎨 Professional Dark Mode:** Features modern, synchronized Vector Drawable Icons optimized for dark themes.
-* **📱 Optimized UI/UX:**
-  * Category filter bar (All, Music, Gaming, etc.) pinned neatly right below the header.
-  * Clean bottom navigation bar with 4 main tabs: Home, Shorts, Subscriptions, Library/You.
-  * Integrated Cast button to connect with smart external devices.
-* **🔑 Google Account Login:** Smart Setup Wizard supporting official Google account login to sync your history and subscribed channels.
+* **Two-Tier Ultra AdBlock:** Network-level ad URL blocking + DOM 16x fast-forward auto-skipper.
+* **SponsorBlock Support:** Automatically skips in-video sponsorships, intros, and self-promotion segments.
+* **HTML5 Fullscreen Support:** Smooth immersive fullscreen transition with auto-sensor rotation.
+* **Anti-Pause Background Audio:** Page Visibility API hook keeps playback active when screen is locked.
+* **Quick Speed Switcher:** 0.5x to 3.0x playback rates accessible directly from the header bar.
+* **Download & Clean Share:** Strips tracking parameters and routes URLs to external downloaders (Seal, NewPipe, Cobalt).
+* **Deep Linking:** Opens `youtube.com` and `youtu.be` links natively from other apps.
+* **AMOLED Dark Mode & Liquid Glass UI:** Battery-saving pitch black theme with floating rounded bottom bar.
+* **Gradle & Termux Ready:** Fully compatible with Android Studio and lightweight Termux CLI builds.
 
 ---
 
-## 🛠️ Cài đặt & Sử dụng / Installation & Usage
-1. Tải file APK mới nhất từ mục Releases hoặc thư mục gốc.
-2. Cài đặt trên thiết bị Android của bạn (Yêu cầu Android 8.0 / API 26 trở lên).
-3. Đăng nhập tài khoản Google để bắt đầu trải nghiệm!
-
----
-*Developed by Letamphong628 (Discord:07.04.04)*
+*Forked & Enhanced based on YouTube NADS by Letamphong628.*
